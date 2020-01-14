@@ -47,6 +47,7 @@ const options = {
 
 <MUIDataTable
   title={"Employee List"}
+  subtitle={"All data has been set"}
   data={data}
   columns={columns}
   options={options}
@@ -108,6 +109,7 @@ const options = {
 
 <MUIDataTable
   title={"Employee List"}
+  subtitle={"All data has been set"}
   data={data}
   columns={columns}
   options={options}
@@ -312,7 +314,7 @@ class BodyCellExample extends React.Component {
 
     return (
       <MuiThemeProvider theme={this.getMuiTheme()}>
-        <MUIDataTable title={"ACME Employee list"} data={data} columns={columns} options={options} />
+        <MUIDataTable title={"ACME Employee list"} subtitle={"All data has been set"} data={data} columns={columns} options={options} />
       </MuiThemeProvider>
     );
 
