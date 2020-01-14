@@ -27,6 +27,7 @@ export const defaultToolbarStyles = theme => ({
   },
   titleRoot: {},
   titleText: {},
+  subtitleText: {},
   icon: {
     '&:hover': {
       color: theme.palette.primary.main,
@@ -47,6 +48,11 @@ export const defaultToolbarStyles = theme => ({
     titleRoot: {},
     titleText: {
       fontSize: '16px',
+      fontWeight: '600',
+    },
+    subtitleText: {
+      fontSize: '13px',
+      fontWeight: '300',
     },
     spacer: {
       display: 'none',
@@ -68,6 +74,9 @@ export const defaultToolbarStyles = theme => ({
       padding: '8px 0px 0px 0px',
     },
     titleText: {
+      textAlign: 'center',
+    },
+    subtitleText: {
       textAlign: 'center',
     },
     actions: {
@@ -217,6 +226,7 @@ class TableToolbar extends React.Component {
       resetFilters,
       toggleViewColumn,
       title,
+      subtitle,
       tableRef,
     } = this.props;
 
@@ -254,6 +264,10 @@ class TableToolbar extends React.Component {
             <Typography variant="h6" className={classes.titleText}>
               {title}
             </Typography>
+            {subtitle && (
+            <Typography className={classes.subtitleText} style={{color: 'rgba(0, 0, 0, 0.54)', fontSize: '13px'}}>
+              {subtitle}
+            </Typography>)}
           </div>
         </div>
         <div className={classes.actions}>
