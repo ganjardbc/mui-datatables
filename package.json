@@ -1,6 +1,6 @@
 {
-  "name": "mui-datatables",
-  "version": "2.12.0",
+  "name": "mui-datatables-bitozen",
+  "version": "2.0.0",
   "description": "Datatables for React using Material-UI",
   "main": "dist/index.js",
   "files": [
@@ -121,5 +121,10 @@
     ],
     "sourceMap": false,
     "instrument": false
+  },
+  "directories": {
+    "doc": "docs",
+    "example": "examples",
+    "test": "test"
   }
 }
