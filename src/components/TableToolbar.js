@@ -265,9 +265,10 @@ class TableToolbar extends React.Component {
               {title}
             </Typography>
             {subtitle && (
-            <Typography className={classes.subtitleText} style={{color: 'rgba(0, 0, 0, 0.54)', fontSize: '13px'}}>
-              {subtitle}
-            </Typography>)}
+              <Typography className={classes.subtitleText} style={{ color: 'rgba(0, 0, 0, 0.54)', fontSize: '13px' }}>
+                {subtitle}
+              </Typography>
+            )}
           </div>
         </div>
         <div className={classes.actions}>
