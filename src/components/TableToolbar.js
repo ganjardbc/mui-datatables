@@ -102,7 +102,7 @@ class TableToolbar extends React.Component {
   }
 
   handleCreate = () => {
-    this.props.onCreate();
+    this.props.onCreate() ? this.props.onCreate() : null;
   };
 
   handleCSVDownload = () => {
