@@ -97,7 +97,7 @@ class Example extends React.Component {
       responsive: 'scrollMaxHeight',
       download: false,
       print: false,
-      add: true,
+      create: true,
     };
 
     return (

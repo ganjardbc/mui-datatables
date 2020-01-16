@@ -60,7 +60,7 @@ export const defaultToolbarStyles = theme => ({
     },
     left: {
       // flex: "1 1 40%",
-      padding: '8px 0px',
+      pcreateing: '8px 0px',
     },
     actions: {
       // flex: "1 1 60%",
@@ -72,7 +72,7 @@ export const defaultToolbarStyles = theme => ({
       display: 'block',
     },
     left: {
-      padding: '8px 0px 0px 0px',
+      pcreateing: '8px 0px 0px 0px',
     },
     titleText: {
       textAlign: 'center',
@@ -236,7 +236,7 @@ class TableToolbar extends React.Component {
       tableRef,
     } = this.props;
 
-    const { search, downloadCsv, print, add, viewColumns, filterTable } = options.textLabels.toolbar;
+    const { search, downloadCsv, print, create, viewColumns, filterTable } = options.textLabels.toolbar;
     const { showSearch, searchText } = this.state;
     var searchPosition = 120;
 
@@ -251,7 +251,7 @@ class TableToolbar extends React.Component {
                 <div style={{display: 'none'}}>
                   {options.download && (searchPosition += 48)}
                   {options.print && (searchPosition += 48)}
-                  {options.add && (searchPosition += 48)}
+                  {options.create && (searchPosition += 48)}
                 </div>
                 <div
                   style={{
@@ -375,12 +375,12 @@ class TableToolbar extends React.Component {
               }
             />
           )}
-          {options.add && (
+          {options.create && (
             <span>
-              <Tooltip title={add}>
+              <Tooltip title={create}>
                 <IconButton
-                  data-testid={add + '-iconButton'}
-                  aria-label={add}
+                  data-testid={create + '-iconButton'}
+                  aria-label={create}
                   classes={{ root: classes.icon }}
                   onClick={this.handleCreate}>
                   <AddIcon />

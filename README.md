@@ -110,7 +110,7 @@ const options = {
   filterType: 'checkbox',
   print: false,
   download: false,
-  add: true,
+  create: true,
 };
 
 <MUIDataTable
