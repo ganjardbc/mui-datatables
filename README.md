@@ -47,11 +47,7 @@ const options = {
 
 <MUIDataTable
   title={"Employee List"}
-<<<<<<< HEAD
   subtitle={"all data has been set"}
-=======
-  subtitle={"All data has been set"}
->>>>>>> 83e67951be3d0d678eabd68445efd7b79976488f
   data={data}
   columns={columns}
   options={options}
