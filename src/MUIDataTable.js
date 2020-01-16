@@ -1323,7 +1323,7 @@ class MUIDataTable extends React.Component {
               subtitle={subtitle}
               toggleViewColumn={this.toggleViewColumn}
               setTableAction={this.setTableAction}
-              onCreate={onCreate}
+              onCreate={onCreate ? onCreate : () => {}}
             />
           )
         )}
