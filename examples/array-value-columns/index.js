@@ -95,8 +95,8 @@ class Example extends React.Component {
       filter: true,
       filterType: 'dropdown',
       responsive: 'scrollMaxHeight',
-      download: false,
-      print: false,
+      download: true,
+      print: true,
       create: true,
     };
 
@@ -109,7 +109,8 @@ class Example extends React.Component {
         options={options} 
         onCreate={() => {
           alert('this is create handle');
-        }} />
+        }} 
+        />
     );
 
   }
