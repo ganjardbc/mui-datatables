@@ -47,9 +47,13 @@ const options = {
 
 <MUIDataTable
   title={"Employee List"}
+  subtitle={"all data has been set"}
   data={data}
   columns={columns}
   options={options}
+  onCreate={() => {
+    alert('this is create handle');
+  }}
 />
 
 ```
@@ -104,13 +108,20 @@ const data = [
 
 const options = {
   filterType: 'checkbox',
+  print: false,
+  download: false,
+  add: true,
 };
 
 <MUIDataTable
   title={"Employee List"}
+  subtitle={"all data has been set"}
   data={data}
   columns={columns}
   options={options}
+  onCreate={() => {
+    alert('this is create handle');
+  }}
 />
 
 ```

@@ -10,6 +10,7 @@ import TableSearch from './TableSearch';
 import SearchIcon from '@material-ui/icons/Search';
 import DownloadIcon from '@material-ui/icons/CloudDownload';
 import PrintIcon from '@material-ui/icons/Print';
+import AddIcon from '@material-ui/icons/Add';
 import ViewColumnIcon from '@material-ui/icons/ViewColumn';
 import FilterIcon from '@material-ui/icons/FilterList';
 import ReactToPrint from 'react-to-print';
@@ -91,12 +92,17 @@ class TableToolbar extends React.Component {
     iconActive: null,
     showSearch: Boolean(this.props.searchText || this.props.options.searchText || this.props.options.searchOpen),
     searchText: this.props.searchText || null,
+    searchPosition: 120,
   };
 
   componentDidUpdate(prevProps) {
     if (this.props.searchText !== prevProps.searchText) {
       this.setState({ searchText: this.props.searchText });
     }
+  }
+
+  handleCreate = () => {
+    this.props.onCreate();
   }
 
   handleCSVDownload = () => {
@@ -230,8 +236,9 @@ class TableToolbar extends React.Component {
       tableRef,
     } = this.props;
 
-    const { search, downloadCsv, print, viewColumns, filterTable } = options.textLabels.toolbar;
+    const { search, downloadCsv, print, add, viewColumns, filterTable } = options.textLabels.toolbar;
     const { showSearch, searchText } = this.state;
+    var searchPosition = 120;
 
     return (
       <Toolbar className={classes.root} role={'toolbar'} aria-label={'Table Toolbar'}>
@@ -240,21 +247,28 @@ class TableToolbar extends React.Component {
             options.customSearchRender ? (
               options.customSearchRender(searchText, this.handleSearch, this.hideSearch, options)
             ) : (
-              <div
-                style={{
-                  position: 'absolute',
-                  top: '7.5px',
-                  maxWidth: '300px',
-                  right: '215px',
-                  backgroundColor: '#fff',
-                  zIndex: '2',
-                }}>
-                <TableSearch
-                  searchText={searchText}
-                  onSearch={this.handleSearch}
-                  onHide={this.hideSearch}
-                  options={options}
-                />
+              <div>
+                <div style={{display: 'none'}}>
+                  {options.download && (searchPosition += 48)}
+                  {options.print && (searchPosition += 48)}
+                  {options.add && (searchPosition += 48)}
+                </div>
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '7.5px',
+                    maxWidth: '300px',
+                    right: searchPosition.toString()+'px',
+                    backgroundColor: '#fff',
+                    zIndex: '2',
+                  }}>
+                  <TableSearch
+                    searchText={searchText}
+                    onSearch={this.handleSearch}
+                    onHide={this.hideSearch}
+                    options={options}
+                  />
+                </div>
               </div>
             )
           ) : (
@@ -360,6 +374,19 @@ class TableToolbar extends React.Component {
                 />
               }
             />
+          )}
+          {options.add && (
+            <span>
+              <Tooltip title={add}>
+                <IconButton
+                  data-testid={add + '-iconButton'}
+                  aria-label={add}
+                  classes={{ root: classes.icon }}
+                  onClick={this.handleCreate}>
+                  <AddIcon />
+                </IconButton>
+              </Tooltip>
+            </span>
           )}
           {options.customToolbar && options.customToolbar()}
         </div>

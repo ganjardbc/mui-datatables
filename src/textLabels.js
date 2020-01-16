@@ -16,6 +16,7 @@ const textLabels = {
     search: 'Search',
     downloadCsv: 'Download CSV',
     print: 'Print',
+    add: 'Create',
     viewColumns: 'View Columns',
     filterTable: 'Filter Table',
   },

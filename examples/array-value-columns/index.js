@@ -95,10 +95,21 @@ class Example extends React.Component {
       filter: true,
       filterType: 'dropdown',
       responsive: 'scrollMaxHeight',
+      download: false,
+      print: false,
+      add: true,
     };
 
     return (
-      <MUIDataTable title={"ACME Employee list"} subtitle={"All data is set"} data={data} columns={columns} options={options} />
+      <MUIDataTable 
+        title={"ACME Employee list"} 
+        subtitle={"All data is set"} 
+        data={data} 
+        columns={columns} 
+        options={options} 
+        onCreate={() => {
+          alert('this is create handle');
+        }} />
     );
 
   }

@@ -84,7 +84,7 @@ const TABLE_LOAD = {
 };
 
 // Populate this list with anything that might render in the toolbar to determine if we hide the toolbar
-const TOOLBAR_ITEMS = ['title', 'subtitle', 'filter', 'search', 'print', 'download', 'viewColumns', 'customToolbar'];
+const TOOLBAR_ITEMS = ['title', 'subtitle', 'filter', 'search', 'print', 'add', 'download', 'viewColumns', 'customToolbar'];
 
 const hasToolbarItem = (options, title, subtitle) => {
   options.title = title;
@@ -113,6 +113,7 @@ class MUIDataTable extends React.Component {
             filter: PropTypes.bool,
             sort: PropTypes.bool,
             print: PropTypes.bool,
+            add: PropTypes.bool,
             searchable: PropTypes.bool,
             download: PropTypes.bool,
             viewColumns: PropTypes.bool,
@@ -182,6 +183,7 @@ class MUIDataTable extends React.Component {
       searchText: PropTypes.string,
       searchPlaceholder: PropTypes.string,
       print: PropTypes.bool,
+      add: PropTypes.bool,
       viewColumns: PropTypes.bool,
       download: PropTypes.bool,
       downloadOptions: PropTypes.shape({
@@ -311,6 +313,7 @@ class MUIDataTable extends React.Component {
     sort: true,
     search: true,
     print: true,
+    add: true,
     viewColumns: true,
     download: true,
     downloadOptions: {
@@ -409,6 +412,7 @@ class MUIDataTable extends React.Component {
         filter: true,
         sort: true,
         print: true,
+        add: true,
         searchable: true,
         download: true,
         viewColumns: true,
@@ -1239,7 +1243,7 @@ class MUIDataTable extends React.Component {
   }
 
   render() {
-    const { classes, className, title, subtitle } = this.props;
+    const { classes, className, title, subtitle, onCreate } = this.props;
     const {
       announceText,
       activeColumn,
@@ -1309,6 +1313,7 @@ class MUIDataTable extends React.Component {
               subtitle={subtitle}
               toggleViewColumn={this.toggleViewColumn}
               setTableAction={this.setTableAction}
+              onCreate={onCreate}
             />
           )
         )}
