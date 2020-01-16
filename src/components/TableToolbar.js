@@ -103,7 +103,7 @@ class TableToolbar extends React.Component {
 
   handleCreate = () => {
     this.props.onCreate();
-  }
+  };
 
   handleCSVDownload = () => {
     const { data, displayData, columns, options } = this.props;
@@ -248,7 +248,7 @@ class TableToolbar extends React.Component {
               options.customSearchRender(searchText, this.handleSearch, this.hideSearch, options)
             ) : (
               <div>
-                <div style={{display: 'none'}}>
+                <div style={{ display: 'none' }}>
                   {options.download && (searchPosition += 48)}
                   {options.print && (searchPosition += 48)}
                   {options.create && (searchPosition += 48)}
@@ -258,7 +258,7 @@ class TableToolbar extends React.Component {
                     position: 'absolute',
                     top: '7.5px',
                     maxWidth: '300px',
-                    right: searchPosition.toString()+'px',
+                    right: searchPosition.toString() + 'px',
                     backgroundColor: '#fff',
                     zIndex: '2',
                   }}>

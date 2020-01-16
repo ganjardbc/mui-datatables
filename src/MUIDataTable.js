@@ -84,7 +84,17 @@ const TABLE_LOAD = {
 };
 
 // Populate this list with anything that might render in the toolbar to determine if we hide the toolbar
-const TOOLBAR_ITEMS = ['title', 'subtitle', 'filter', 'search', 'print', 'add', 'download', 'viewColumns', 'customToolbar'];
+const TOOLBAR_ITEMS = [
+  'title',
+  'subtitle',
+  'filter',
+  'search',
+  'print',
+  'add',
+  'download',
+  'viewColumns',
+  'customToolbar',
+];
 
 const hasToolbarItem = (options, title, subtitle) => {
   options.title = title;
