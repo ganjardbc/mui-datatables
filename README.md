@@ -51,9 +51,6 @@ const options = {
   data={data}
   columns={columns}
   options={options}
-  onCreate={() => {
-    alert('this is create handle');
-  }}
 />
 
 ```
@@ -108,9 +105,6 @@ const data = [
 
 const options = {
   filterType: 'checkbox',
-  print: false,
-  download: false,
-  create: true,
 };
 
 <MUIDataTable
@@ -119,8 +113,13 @@ const options = {
   data={data}
   columns={columns}
   options={options}
+  buttonCreate={true}
   onCreate={() => {
     alert('this is create handle');
+  }} 
+  buttonPrint={true}
+  onPrint={() => {
+    alert('this is print handle');
   }}
 />
 

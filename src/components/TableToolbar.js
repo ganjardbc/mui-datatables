@@ -105,6 +105,10 @@ class TableToolbar extends React.Component {
     this.props.onCreate();
   };
 
+  handlePrint = () => {
+    this.props.onPrint();
+  };
+
   handleCSVDownload = () => {
     const { data, displayData, columns, options } = this.props;
     let dataToDownload = data;
@@ -249,9 +253,11 @@ class TableToolbar extends React.Component {
             ) : (
               <div>
                 <div style={{ display: 'none' }}>
-                  {options.download && (searchPosition += 48)}
-                  {options.print && (searchPosition += 48)}
-                  {options.create && (searchPosition += 48)}
+                  {/* {options.download && (searchPosition += 48)} */}
+                  {/* {options.print && (searchPosition += 48)} */}
+                  {/* {options.create && (searchPosition += 48)} */}
+                  {this.props.buttonPrint && (searchPosition += 48)}
+                  {this.props.buttonCreate && (searchPosition += 48)}
                 </div>
                 <div
                   style={{
@@ -298,36 +304,7 @@ class TableToolbar extends React.Component {
               </IconButton>
             </Tooltip>
           )}
-          {options.download && (
-            <Tooltip title={downloadCsv}>
-              <IconButton
-                data-testid={downloadCsv + '-iconButton'}
-                aria-label={downloadCsv}
-                classes={{ root: classes.icon }}
-                onClick={this.handleCSVDownload}>
-                <DownloadIcon />
-              </IconButton>
-            </Tooltip>
-          )}
-          {options.print && (
-            <span>
-              <ReactToPrint
-                trigger={() => (
-                  <span>
-                    <Tooltip title={print}>
-                      <IconButton
-                        data-testid={print + '-iconButton'}
-                        aria-label={print}
-                        classes={{ root: classes.icon }}>
-                        <PrintIcon />
-                      </IconButton>
-                    </Tooltip>
-                  </span>
-                )}
-                content={() => this.props.tableRef()}
-              />
-            </span>
-          )}
+          
           {options.viewColumns && (
             <Popover
               refExit={this.setActiveIcon.bind(null)}
@@ -347,6 +324,7 @@ class TableToolbar extends React.Component {
               }
             />
           )}
+
           {options.filter && (
             <Popover
               refExit={this.setActiveIcon.bind(null)}
@@ -375,7 +353,54 @@ class TableToolbar extends React.Component {
               }
             />
           )}
-          {options.create && (
+          
+          {/* {options.download && (
+            <Tooltip title={downloadCsv}>
+              <IconButton
+                data-testid={downloadCsv + '-iconButton'}
+                aria-label={downloadCsv}
+                classes={{ root: classes.icon }}
+                onClick={this.handleCSVDownload}>
+                <DownloadIcon />
+              </IconButton>
+            </Tooltip>
+          )} */}
+          
+          {/* {options.print && (
+            <span>
+              <ReactToPrint
+                trigger={() => (
+                  <span>
+                    <Tooltip title={print}>
+                      <IconButton
+                        data-testid={print + '-iconButton'}
+                        aria-label={print}
+                        classes={{ root: classes.icon }}>
+                        <PrintIcon />
+                      </IconButton>
+                    </Tooltip>
+                  </span>
+                )}
+                content={() => this.props.tableRef()}
+              />
+            </span>
+          )} */}
+          
+          {this.props.buttonPrint && (
+            <span>
+              <Tooltip title={print}>
+                <IconButton
+                  data-testid={print + '-iconButton'}
+                  aria-label={print}
+                  classes={{ root: classes.icon }}
+                  onClick={this.handlePrint}>
+                  <PrintIcon />
+                </IconButton>
+              </Tooltip>
+            </span>
+          )}
+
+          {this.props.buttonCreate && (
             <span>
               <Tooltip title={create}>
                 <IconButton

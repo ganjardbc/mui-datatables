@@ -1253,7 +1253,7 @@ class MUIDataTable extends React.Component {
   }
 
   render() {
-    const { classes, className, title, subtitle, onCreate } = this.props;
+    const { classes, className, title, subtitle, onCreate, onPrint, buttonCreate, buttonPrint } = this.props;
     const {
       announceText,
       activeColumn,
@@ -1324,6 +1324,9 @@ class MUIDataTable extends React.Component {
               toggleViewColumn={this.toggleViewColumn}
               setTableAction={this.setTableAction}
               onCreate={onCreate ? onCreate : () => {}}
+              onPrint={onPrint ? onPrint : () => {}}
+              buttonCreate={buttonCreate ? buttonCreate : false}
+              buttonPrint={buttonPrint ? buttonPrint : false}
             />
           )
         )}
