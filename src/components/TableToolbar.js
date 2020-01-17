@@ -304,7 +304,7 @@ class TableToolbar extends React.Component {
               </IconButton>
             </Tooltip>
           )}
-          
+
           {options.viewColumns && (
             <Popover
               refExit={this.setActiveIcon.bind(null)}
@@ -353,7 +353,7 @@ class TableToolbar extends React.Component {
               }
             />
           )}
-          
+
           {/* {options.download && (
             <Tooltip title={downloadCsv}>
               <IconButton
@@ -365,7 +365,7 @@ class TableToolbar extends React.Component {
               </IconButton>
             </Tooltip>
           )} */}
-          
+
           {/* {options.print && (
             <span>
               <ReactToPrint
@@ -385,7 +385,7 @@ class TableToolbar extends React.Component {
               />
             </span>
           )} */}
-          
+
           {this.props.buttonPrint && (
             <span>
               <Tooltip title={print}>
