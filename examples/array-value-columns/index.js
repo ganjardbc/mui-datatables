@@ -107,6 +107,8 @@ class Example extends React.Component {
         data={data} 
         columns={columns} 
         options={options} 
+        circularProgress={false}
+        linearProgress={false}
         buttonCreate={true}
         onCreate={() => {
           alert('this is create handle');

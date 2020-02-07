@@ -51,6 +51,8 @@ const options = {
   data={data}
   columns={columns}
   options={options}
+  circularProgress={false}
+  linearProgress={false}
 />
 
 ```
@@ -113,6 +115,8 @@ const options = {
   data={data}
   columns={columns}
   options={options}
+  circularProgress={false}
+  linearProgress={false}
   buttonCreate={true}
   onCreate={() => {
     alert('this is create handle');

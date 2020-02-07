@@ -8,12 +8,15 @@ import TableFilter from './TableFilter';
 import TableViewCol from './TableViewCol';
 import TableSearch from './TableSearch';
 import SearchIcon from '@material-ui/icons/Search';
-import DownloadIcon from '@material-ui/icons/CloudDownload';
+// import DownloadIcon from '@material-ui/icons/CloudDownload';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import LinearProgress from '@material-ui/core/LinearProgress';
+// BorderLinearProgress
 import PrintIcon from '@material-ui/icons/Print';
 import AddIcon from '@material-ui/icons/Add';
 import ViewColumnIcon from '@material-ui/icons/ViewColumn';
 import FilterIcon from '@material-ui/icons/FilterList';
-import ReactToPrint from 'react-to-print';
+// import ReactToPrint from 'react-to-print';
 import { withStyles } from '@material-ui/core/styles';
 import { createCSVDownload } from '../utils';
 
@@ -238,6 +241,7 @@ class TableToolbar extends React.Component {
       title,
       subtitle,
       tableRef,
+      circularProgress,
     } = this.props;
 
     const { search, downloadCsv, print, create, viewColumns, filterTable } = options.textLabels.toolbar;
@@ -291,6 +295,13 @@ class TableToolbar extends React.Component {
             )}
           </div>
         </div>
+
+        {circularProgress && (
+        <div className={classes.center}>
+          <CircularProgress size={24} />
+        </div>
+        )}
+
         <div className={classes.actions}>
           {options.search && (
             <Tooltip title={search} disableFocusListener>
