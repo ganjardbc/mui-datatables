@@ -107,7 +107,7 @@ class Example extends React.Component {
         data={data} 
         columns={columns} 
         options={options} 
-        circularProgress={false}
+        circularProgress={true}
         linearProgress={false}
         buttonCreate={true}
         onCreate={() => {

@@ -90,6 +90,12 @@ export const defaultToolbarStyles = theme => ({
   '@media screen and (max-width: 480px)': {},
 });
 
+const ColorCircularProgress = withStyles({
+  root: {
+    color: '#2ecc71',
+  },
+})(CircularProgress);
+
 class TableToolbar extends React.Component {
   state = {
     iconActive: null,
@@ -296,11 +302,7 @@ class TableToolbar extends React.Component {
           </div>
         </div>
 
-        {circularProgress && (
-        <div className={classes.center}>
-          <CircularProgress size={24} />
-        </div>
-        )}
+        {circularProgress && <ColorCircularProgress size={24} />}
 
         <div className={classes.actions}>
           {options.search && (

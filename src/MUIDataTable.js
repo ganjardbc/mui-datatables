@@ -1,7 +1,7 @@
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
 import MuiTable from '@material-ui/core/Table';
-import LoadingBar from "react-top-loading-bar";
+import LoadingBar from 'react-top-loading-bar';
 import classnames from 'classnames';
 import assignwith from 'lodash.assignwith';
 import cloneDeep from 'lodash.clonedeep';
@@ -79,6 +79,15 @@ const defaultTableStyles = theme => ({
     },
   },
 });
+
+const ColorLinearProgress = withStyles({
+  colorPrimary: {
+    backgroundColor: '#b2dfdb',
+  },
+  barColorPrimary: {
+    backgroundColor: '#2ecc71',
+  },
+})(LinearProgress);
 
 const TABLE_LOAD = {
   INITIAL: 1,
@@ -1255,7 +1264,18 @@ class MUIDataTable extends React.Component {
   }
 
   render() {
-    const { classes, className, title, subtitle, circularProgress, linearProgress, onCreate, onPrint, buttonCreate, buttonPrint } = this.props;
+    const {
+      classes,
+      className,
+      title,
+      subtitle,
+      circularProgress,
+      linearProgress,
+      onCreate,
+      onPrint,
+      buttonCreate,
+      buttonPrint,
+    } = this.props;
     const {
       announceText,
       activeColumn,
@@ -1343,8 +1363,8 @@ class MUIDataTable extends React.Component {
           filterUpdate={this.filterUpdate}
           columnNames={columnNames}
         />
-        
-        {linearProgress && (<LinearProgress variant="query" style={{height: '3px'}} />)}
+
+        {linearProgress && <ColorLinearProgress variant="query" className={classes.margin} style={{ height: '3px' }} />}
 
         <div style={{ position: 'relative' }} className={responsiveClass}>
           {this.options.resizableColumns && (
@@ -1373,19 +1393,19 @@ class MUIDataTable extends React.Component {
             />
 
             <TableBody
-                data={displayData}
-                count={rowCount}
-                columns={columns}
-                page={page}
-                rowsPerPage={rowsPerPage}
-                selectedRows={selectedRows}
-                selectRowUpdate={this.selectRowUpdate}
-                previousSelectedRow={previousSelectedRow}
-                expandedRows={expandedRows}
-                toggleExpandRow={this.toggleExpandRow}
-                options={this.options}
-                filterList={filterList}
-              />
+              data={displayData}
+              count={rowCount}
+              columns={columns}
+              page={page}
+              rowsPerPage={rowsPerPage}
+              selectedRows={selectedRows}
+              selectRowUpdate={this.selectRowUpdate}
+              previousSelectedRow={previousSelectedRow}
+              expandedRows={expandedRows}
+              toggleExpandRow={this.toggleExpandRow}
+              options={this.options}
+              filterList={filterList}
+            />
           </MuiTable>
         </div>
         <TableFooter
