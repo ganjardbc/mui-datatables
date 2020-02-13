@@ -102,6 +102,7 @@ const TOOLBAR_ITEMS = [
   'search',
   'print',
   'add',
+  'upload',
   'download',
   'viewColumns',
   'customToolbar',
@@ -135,6 +136,7 @@ class MUIDataTable extends React.Component {
             sort: PropTypes.bool,
             print: PropTypes.bool,
             create: PropTypes.bool,
+            upload: PropTypes.bool,
             searchable: PropTypes.bool,
             download: PropTypes.bool,
             viewColumns: PropTypes.bool,
@@ -205,6 +207,7 @@ class MUIDataTable extends React.Component {
       searchPlaceholder: PropTypes.string,
       print: PropTypes.bool,
       create: PropTypes.bool,
+      upload: PropTypes.bool,
       viewColumns: PropTypes.bool,
       download: PropTypes.bool,
       downloadOptions: PropTypes.shape({
@@ -215,7 +218,7 @@ class MUIDataTable extends React.Component {
           useDisplayedRowsOnly: PropTypes.bool,
         }),
       }),
-      onDownload: PropTypes.func,
+      onUpload: PropTypes.func,
     }),
     /** Pass and use className to style MUIDataTable as desired */
     className: PropTypes.string,
@@ -335,6 +338,7 @@ class MUIDataTable extends React.Component {
     search: true,
     print: true,
     create: true,
+    upload: true,
     viewColumns: true,
     download: true,
     downloadOptions: {
@@ -434,6 +438,7 @@ class MUIDataTable extends React.Component {
         sort: true,
         print: true,
         create: true,
+        upload: true,
         searchable: true,
         download: true,
         viewColumns: true,
@@ -1271,8 +1276,10 @@ class MUIDataTable extends React.Component {
       subtitle,
       circularProgress,
       linearProgress,
+      onUpload,
       onCreate,
       onPrint,
+      buttonUpload,
       buttonCreate,
       buttonPrint,
     } = this.props;
@@ -1346,8 +1353,10 @@ class MUIDataTable extends React.Component {
               circularProgress={circularProgress}
               toggleViewColumn={this.toggleViewColumn}
               setTableAction={this.setTableAction}
+              onUpload={onUpload ? onUpload : () => {}}
               onCreate={onCreate ? onCreate : () => {}}
               onPrint={onPrint ? onPrint : () => {}}
+              buttonUpload={buttonUpload ? buttonUpload : false}
               buttonCreate={buttonCreate ? buttonCreate : false}
               buttonPrint={buttonPrint ? buttonPrint : false}
             />

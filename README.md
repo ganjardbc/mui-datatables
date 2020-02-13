@@ -117,6 +117,10 @@ const options = {
   options={options}
   circularProgress={false}
   linearProgress={false}
+  buttonUpload={true}
+  onUpload={() => {
+    alert('this is upload handled');
+  }}
   buttonCreate={true}
   onCreate={() => {
     alert('this is create handle');
