@@ -24,47 +24,49 @@ import { buildMap, getCollatorComparator, sortCompare } from './utils';
 
 const changeScrollbar = true;
 
-const defaultScrollbar = changeScrollbar ? {
-  '&::scrollbar':  {
-    width: '7.5px',
-    height: '7.5px',
-    backgroundColor: 'rgba(0, 0, 0, 0.05)'
-  },
-  '&::scrollbar-thumb': {
-    backgroundColor: 'rgba(0, 0, 0, 0.15)',
-    borderRadius: '1ex',
-    borderRadius: '1ex'
-  },
-  '&::scrollbar-corner': {
-    backgroundColor: '#fff'
-  },
-  '&::-webkit-scrollbar': {
-    width: '7.5px',
-    height: '7.5px',
-    backgroundColor: 'rgba(0, 0, 0, 0.05)'
-  },
-  '&::-webkit-scrollbar-thumb': {
-    backgroundColor: 'rgba(0, 0, 0, 0.15)',
-    '-webkit-border-radius': '1ex',
-    borderRadius: '1ex'
-  },
-  '&::-webkit-scrollbar-corner': {
-    backgroundColor: '#fff'
-  },
-  '&::-moz-scrollbar': {
-    width: '7.5px',
-    height: '7.5px',
-    backgroundColor: 'rgba(0, 0, 0, 0.05)'
-  },
-  '&::-moz-scrollbar-thumb': {
-    backgroundColor: 'rgba(0, 0, 0, 0.15)',
-    '-webkit-border-radius': '1ex',
-    borderRadius: '1ex'
-  },
-  '&::-moz-scrollbar-corner': {
-    backgroundColor: '#fff'
-  }
-} : {};
+const defaultScrollbar = changeScrollbar
+  ? {
+      '&::scrollbar': {
+        width: '7.5px',
+        height: '7.5px',
+        backgroundColor: 'rgba(0, 0, 0, 0.05)',
+      },
+      '&::scrollbar-thumb': {
+        backgroundColor: 'rgba(0, 0, 0, 0.15)',
+        borderRadius: '1ex',
+        borderRadius: '1ex',
+      },
+      '&::scrollbar-corner': {
+        backgroundColor: '#fff',
+      },
+      '&::-webkit-scrollbar': {
+        width: '7.5px',
+        height: '7.5px',
+        backgroundColor: 'rgba(0, 0, 0, 0.05)',
+      },
+      '&::-webkit-scrollbar-thumb': {
+        backgroundColor: 'rgba(0, 0, 0, 0.15)',
+        '-webkit-border-radius': '1ex',
+        borderRadius: '1ex',
+      },
+      '&::-webkit-scrollbar-corner': {
+        backgroundColor: '#fff',
+      },
+      '&::-moz-scrollbar': {
+        width: '7.5px',
+        height: '7.5px',
+        backgroundColor: 'rgba(0, 0, 0, 0.05)',
+      },
+      '&::-moz-scrollbar-thumb': {
+        backgroundColor: 'rgba(0, 0, 0, 0.15)',
+        '-webkit-border-radius': '1ex',
+        borderRadius: '1ex',
+      },
+      '&::-moz-scrollbar-corner': {
+        backgroundColor: '#fff',
+      },
+    }
+  : {};
 
 const defaultTableStyles = theme => ({
   root: {},
@@ -81,21 +83,21 @@ const defaultTableStyles = theme => ({
     overflow: 'auto',
     height: '100%',
     maxHeight: '499px',
-    ...defaultScrollbar
+    ...defaultScrollbar,
   },
   responsiveScrollMaxHeight: {
     overflowX: 'auto',
     overflow: 'auto',
     height: '100%',
     maxHeight: '499px',
-    ...defaultScrollbar
+    ...defaultScrollbar,
   },
   responsiveScrollFullHeight: {
     overflowX: 'auto',
     overflow: 'auto',
     height: '100%',
     maxHeight: 'none',
-    ...defaultScrollbar
+    ...defaultScrollbar,
   },
   responsiveStacked: {
     overflowX: 'auto',
@@ -104,7 +106,7 @@ const defaultTableStyles = theme => ({
       overflowX: 'hidden',
       overflow: 'hidden',
     },
-    ...defaultScrollbar
+    ...defaultScrollbar,
   },
   caption: {
     position: 'absolute',
