@@ -1,7 +1,7 @@
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
 import MuiTable from '@material-ui/core/Table';
-import LoadingBar from 'react-top-loading-bar';
+// import LoadingBar from 'react-top-loading-bar';
 import classnames from 'classnames';
 import assignwith from 'lodash.assignwith';
 import cloneDeep from 'lodash.clonedeep';
@@ -20,12 +20,57 @@ import TableToolbarSelect from './components/TableToolbarSelect';
 import textLabels from './textLabels';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { buildMap, getCollatorComparator, sortCompare } from './utils';
+// import './MUIDataTable.css';
+
+const changeScrollbar = true;
+
+const defaultScrollbar = changeScrollbar ? {
+  '&::scrollbar':  {
+    width: '7.5px',
+    height: '7.5px',
+    backgroundColor: 'rgba(0, 0, 0, 0.05)'
+  },
+  '&::scrollbar-thumb': {
+    backgroundColor: 'rgba(0, 0, 0, 0.15)',
+    borderRadius: '1ex',
+    borderRadius: '1ex'
+  },
+  '&::scrollbar-corner': {
+    backgroundColor: '#fff'
+  },
+  '&::-webkit-scrollbar': {
+    width: '7.5px',
+    height: '7.5px',
+    backgroundColor: 'rgba(0, 0, 0, 0.05)'
+  },
+  '&::-webkit-scrollbar-thumb': {
+    backgroundColor: 'rgba(0, 0, 0, 0.15)',
+    '-webkit-border-radius': '1ex',
+    borderRadius: '1ex'
+  },
+  '&::-webkit-scrollbar-corner': {
+    backgroundColor: '#fff'
+  },
+  '&::-moz-scrollbar': {
+    width: '7.5px',
+    height: '7.5px',
+    backgroundColor: 'rgba(0, 0, 0, 0.05)'
+  },
+  '&::-moz-scrollbar-thumb': {
+    backgroundColor: 'rgba(0, 0, 0, 0.15)',
+    '-webkit-border-radius': '1ex',
+    borderRadius: '1ex'
+  },
+  '&::-moz-scrollbar-corner': {
+    backgroundColor: '#fff'
+  }
+} : {};
 
 const defaultTableStyles = theme => ({
   root: {},
   paper: {
     boxShadow: '0 0 0 #fff',
-    borderRadius: '5px',
+    borderRadius: '10px',
     border: '1px rgba(224, 224, 224, 1) solid',
   },
   tableRoot: {
@@ -36,18 +81,21 @@ const defaultTableStyles = theme => ({
     overflow: 'auto',
     height: '100%',
     maxHeight: '499px',
+    ...defaultScrollbar
   },
   responsiveScrollMaxHeight: {
     overflowX: 'auto',
     overflow: 'auto',
     height: '100%',
     maxHeight: '499px',
+    ...defaultScrollbar
   },
   responsiveScrollFullHeight: {
     overflowX: 'auto',
     overflow: 'auto',
     height: '100%',
     maxHeight: 'none',
+    ...defaultScrollbar
   },
   responsiveStacked: {
     overflowX: 'auto',
@@ -56,6 +104,7 @@ const defaultTableStyles = theme => ({
       overflowX: 'hidden',
       overflow: 'hidden',
     },
+    ...defaultScrollbar
   },
   caption: {
     position: 'absolute',

@@ -113,7 +113,7 @@ class TableToolbar extends React.Component {
 
   handleUpload = () => {
     this.props.onUpload();
-  }
+  };
 
   handleCreate = () => {
     this.props.onCreate();
@@ -421,16 +421,16 @@ class TableToolbar extends React.Component {
 
           {this.props.buttonUpload && (
             <span>
-            <Tooltip title={upload}>
-              <IconButton
-                data-testid={upload + '-iconButton'}
-                aria-label={upload}
-                classes={{ root: classes.icon }}
-                onClick={this.handleUpload}>
-                <UploadIcon />
-              </IconButton>
-            </Tooltip>
-          </span>
+              <Tooltip title={upload}>
+                <IconButton
+                  data-testid={upload + '-iconButton'}
+                  aria-label={upload}
+                  classes={{ root: classes.icon }}
+                  onClick={this.handleUpload}>
+                  <UploadIcon />
+                </IconButton>
+              </Tooltip>
+            </span>
           )}
 
           {this.props.buttonCreate && (
