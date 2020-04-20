@@ -1377,7 +1377,7 @@ class MUIDataTable extends React.Component {
         elevation={this.options.elevation}
         ref={this.tableContent}
         className={classnames(classes.paper, className)}>
-        {selectedRows.data.length ? (
+        {selectedRows.data.length && this.options.disableToolbarSelect !== true ? (
           <TableToolbarSelect
             options={this.options}
             selectedRows={selectedRows}

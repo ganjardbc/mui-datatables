@@ -95,9 +95,7 @@ class Example extends React.Component {
       filter: true,
       filterType: 'dropdown',
       responsive: 'scrollMaxHeight',
-      // download: true,
-      // print: true,
-      // create: true,
+      disableToolbarSelect: true
     };
 
     return (
