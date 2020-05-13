@@ -118,6 +118,10 @@ class Example extends React.Component {
         buttonPrint={true}
         onPrint={() => {
           alert('this is print handle');
+        }}
+        buttonDownload={true}
+        onDownload={() => {
+          alert('this is download handle');
         }} 
         />
     );

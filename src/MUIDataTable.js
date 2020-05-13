@@ -1330,9 +1330,11 @@ class MUIDataTable extends React.Component {
       onUpload,
       onCreate,
       onPrint,
+      onDownload,
       buttonUpload,
       buttonCreate,
       buttonPrint,
+      buttonDownload,
     } = this.props;
     const {
       announceText,
@@ -1407,9 +1409,12 @@ class MUIDataTable extends React.Component {
               onUpload={onUpload ? onUpload : () => {}}
               onCreate={onCreate ? onCreate : () => {}}
               onPrint={onPrint ? onPrint : () => {}}
+              onPrint={onPrint ? onPrint : () => {}}
+              onDownload={onDownload ? onDownload : () => {}}
               buttonUpload={buttonUpload ? buttonUpload : false}
               buttonCreate={buttonCreate ? buttonCreate : false}
               buttonPrint={buttonPrint ? buttonPrint : false}
+              buttonDownload={buttonDownload ? buttonDownload : false}
             />
           )
         )}

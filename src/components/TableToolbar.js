@@ -8,10 +8,11 @@ import TableFilter from './TableFilter';
 import TableViewCol from './TableViewCol';
 import TableSearch from './TableSearch';
 import SearchIcon from '@material-ui/icons/Search';
-// import DownloadIcon from '@material-ui/icons/CloudDownload';
 import CircularProgress from '@material-ui/core/CircularProgress';
 // import LinearProgress from '@material-ui/core/LinearProgress';
+
 // BorderLinearProgress
+import DownloadIcon from '@material-ui/icons/CloudDownload';
 import PrintIcon from '@material-ui/icons/Print';
 import UploadIcon from '@material-ui/icons/CloudUpload';
 import AddIcon from '@material-ui/icons/Add';
@@ -122,6 +123,10 @@ class TableToolbar extends React.Component {
   handlePrint = () => {
     this.props.onPrint();
   };
+
+  handleDownload = () => {
+    this.props.onDownload();
+  }
 
   handleCSVDownload = () => {
     const { data, displayData, columns, options } = this.props;
@@ -255,7 +260,7 @@ class TableToolbar extends React.Component {
       circularProgress,
     } = this.props;
 
-    const { search, print, create, upload, viewColumns, filterTable } = options.textLabels.toolbar;
+    const { search, print, download, create, upload, viewColumns, filterTable } = options.textLabels.toolbar;
     const { showSearch, searchText } = this.state;
     var searchPosition = 120;
 
@@ -271,6 +276,7 @@ class TableToolbar extends React.Component {
                   {/* {options.download && (searchPosition += 48)} */}
                   {/* {options.print && (searchPosition += 48)} */}
                   {/* {options.create && (searchPosition += 48)} */}
+                  {this.props.buttonDownload && (searchPosition += 48)}
                   {this.props.buttonPrint && (searchPosition += 48)}
                   {this.props.buttonUpload && (searchPosition += 48)}
                   {this.props.buttonCreate && (searchPosition += 48)}
@@ -428,6 +434,20 @@ class TableToolbar extends React.Component {
                   classes={{ root: classes.icon }}
                   onClick={this.handleUpload}>
                   <UploadIcon />
+                </IconButton>
+              </Tooltip>
+            </span>
+          )}
+
+          {this.props.buttonDownload && (
+            <span>
+              <Tooltip title={download}>
+                <IconButton
+                  data-testid={download + '-iconButton'}
+                  aria-label={download}
+                  classes={{ root: classes.icon }}
+                  onClick={this.handleDownload}>
+                  <DownloadIcon />
                 </IconButton>
               </Tooltip>
             </span>
