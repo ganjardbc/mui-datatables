@@ -126,7 +126,7 @@ class TableToolbar extends React.Component {
 
   handleDownload = () => {
     this.props.onDownload();
-  }
+  };
 
   handleCSVDownload = () => {
     const { data, displayData, columns, options } = this.props;
