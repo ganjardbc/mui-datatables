@@ -136,7 +136,7 @@ const ColorLinearProgress = withStyles({
     backgroundColor: '#b2dfdb',
   },
   barColorPrimary: {
-    backgroundColor: '#2ecc71',
+    backgroundColor: '#2B9133',
   },
 })(LinearProgress);
 

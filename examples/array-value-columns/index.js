@@ -105,8 +105,8 @@ class Example extends React.Component {
         data={data} 
         columns={columns} 
         options={options} 
-        circularProgress={false}
-        linearProgress={false}
+        circularProgress={true}
+        linearProgress={true}
         buttonUpload={true}
         onUpload={() => {
           alert('this is upload handled');

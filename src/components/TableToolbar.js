@@ -94,7 +94,7 @@ export const defaultToolbarStyles = theme => ({
 
 const ColorCircularProgress = withStyles({
   root: {
-    color: '#2ecc71',
+    color: '#2B9133',
   },
 })(CircularProgress);
 
