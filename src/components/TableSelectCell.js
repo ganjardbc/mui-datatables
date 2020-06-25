@@ -6,6 +6,7 @@ import TableCell from '@material-ui/core/TableCell';
 import IconButton from '@material-ui/core/IconButton';
 import { withStyles } from '@material-ui/core/styles';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
+import TableHeadBorder from './TableHeadBorder';
 
 const defaultSelectCellStyles = theme => ({
   root: {},
@@ -69,6 +70,7 @@ class TableSelectCell extends React.Component {
       onExpand,
       isRowSelectable,
       selectableRowsHeader,
+      borderTop,
       ...otherProps
     } = this.props;
 
@@ -107,6 +109,7 @@ class TableSelectCell extends React.Component {
 
     return (
       <TableCell className={cellClass} padding="checkbox">
+        {borderTop && <TableHeadBorder />}
         <div style={{ display: 'flex', alignItems: 'center' }}>
           {expandableOn && (
             <IconButton onClick={onExpand} disabled={isHeaderCell}>

@@ -38,6 +38,7 @@ class TableHead extends React.Component {
 
     return (
       <MuiTableHead
+        // style={{ borderTop: '1px rgba(224, 224, 224, 1) solid' }}
         className={classNames({ [classes.responsiveStacked]: options.responsive === 'stacked', [classes.main]: true })}>
         <TableHeadRow>
           <TableSelectCell
@@ -51,6 +52,7 @@ class TableHead extends React.Component {
             fixedHeader={options.fixedHeader}
             selectableRowsHeader={options.selectableRowsHeader}
             isRowSelectable={true}
+            borderTop={true}
           />
           {columns.map(
             (column, index) =>

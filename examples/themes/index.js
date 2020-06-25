@@ -87,7 +87,7 @@ class Example extends React.Component {
         });
 
         return <MuiThemeProvider theme={theme}>
-            <MUIDataTable title={'ACME Employee list'} data={data} columns={columns} options={options}/>;
+            <MUIDataTable title={'ACME Employee list'} data={data} columns={columns} options={options}/>
         </MuiThemeProvider>;
     }
 }

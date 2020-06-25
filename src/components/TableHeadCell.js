@@ -6,15 +6,18 @@ import HelpIcon from '@material-ui/icons/Help';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
+import TableHeadBorder from './TableHeadBorder';
 
 const defaultHeadCellStyles = theme => ({
-  root: {},
+  root: {
+    // borderTop: '1px rgba(224, 224, 224, 1) solid'
+  },
   fixedHeader: {
     position: 'sticky',
     top: '0px',
     left: '0px',
     zIndex: 100,
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.paper
   },
   tooltip: {
     cursor: 'pointer',
@@ -110,6 +113,7 @@ class TableHeadCell extends React.Component {
 
     return (
       <TableCell className={cellClass} scope={'col'} sortDirection={ariaSortDirection}>
+        <TableHeadBorder />
         {options.sort && sort ? (
           <Tooltip
             title={

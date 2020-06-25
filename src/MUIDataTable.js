@@ -1454,7 +1454,6 @@ class MUIDataTable extends React.Component {
               toggleSort={this.toggleSortColumn}
               setCellRef={this.setHeadCellRef}
               options={this.options}
-              style={{ borderTop: '1px rgba(224, 224, 224, 1) solid' }}
             />
 
             <TableBody
