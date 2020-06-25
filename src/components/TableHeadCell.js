@@ -17,7 +17,7 @@ const defaultHeadCellStyles = theme => ({
     top: '0px',
     left: '0px',
     zIndex: 100,
-    backgroundColor: theme.palette.background.paper
+    backgroundColor: theme.palette.background.paper,
   },
   tooltip: {
     cursor: 'pointer',

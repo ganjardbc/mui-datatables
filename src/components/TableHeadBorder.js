@@ -9,7 +9,7 @@ const defaultHeadCellStyles = theme => ({
     left: '0',
     width: '100%',
     borderTop: '1px rgba(224, 224, 224, 1) solid',
-  }
+  },
 });
 
 class TableHeadBorder extends React.Component {
@@ -24,9 +24,7 @@ class TableHeadBorder extends React.Component {
 
   render() {
     const { classes } = this.props;
-    return (
-      <div className={classes.fixedBorder} />
-    );
+    return <div className={classes.fixedBorder} />;
   }
 }
 
