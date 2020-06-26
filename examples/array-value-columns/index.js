@@ -54,7 +54,39 @@ class Example extends React.Component {
                 });
             }
         }
-      }      
+      },
+      {
+        name: "Actions",
+        options: {
+            filter: false,
+            customHeadRender: (columnMeta) => (
+                <th key={columnMeta.index} style={{ cursor: 'pointer', borderBottom: "1px rgba(0,0,0,0.1) solid", fontSize: 13, fontWeight: 1, textAlign: "right", paddingRight: "60px", top: 0, position: "sticky", backgroundColor: "#fff", zIndex: 100 }} scope="col">
+                    {columnMeta.name}
+                </th>
+            ),
+            customBodyRender: () => {
+                return (
+                    <div className="display-flex-normal" style={{ justifyContent: "flex-end" }}>
+                        <button 
+                            className="btn btn-grey btn-small-circle"
+                            onClick={ () => console.log('edit') }>
+                            edit
+                        </button>
+                        <button 
+                            className="btn btn-grey btn-small-circle"
+                            onClick={ () => console.log('edit') }>
+                            delete
+                        </button>
+                        <button 
+                            className="btn btn-grey btn-small-circle"
+                            onClick={ () => console.log('edit') }>
+                            view
+                        </button>
+                    </div>
+                );
+            }
+        }
+      }
     ];
 
 

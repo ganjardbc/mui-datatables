@@ -6,6 +6,7 @@ import { findDOMNode } from 'react-dom';
 import TableHeadCell from './TableHeadCell';
 import TableHeadRow from './TableHeadRow';
 import TableSelectCell from './TableSelectCell';
+import TableHeadBorder from './TableHeadBorder';
 
 const defaultHeadStyles = theme => ({
   main: {},
@@ -14,6 +15,23 @@ const defaultHeadStyles = theme => ({
       display: 'none',
     },
   },
+  fixedHeader: {
+    position: 'sticky',
+    top: '0px',
+    left: '0px',
+    zIndex: 1000,
+    backgroundColor: theme.palette.background.paper,
+    display: 'table-cell',
+    padding: '4px 56px 4px 24px',
+    textAlign: 'left',
+    borderBottom: '1px solid rgba(224, 224, 224, 1)',
+    verticalAlign: 'inherit'
+  },
+  noBorder: {
+    '&th': {
+      border: '0 #fff solid !important'
+    }
+  }
 });
 
 class TableHead extends React.Component {
@@ -58,7 +76,12 @@ class TableHead extends React.Component {
             (column, index) =>
               column.display === 'true' &&
               (column.customHeadRender ? (
-                column.customHeadRender({ index, ...column }, this.handleToggleColumn)
+                <div className={classes.fixedHeader}>
+                  <TableHeadBorder />
+                  <div className={classes.noBorder}>
+                    { column.customHeadRender({ index, ...column }, this.handleToggleColumn) }
+                  </div>
+                </div>
               ) : (
                 <TableHeadCell
                   key={index}
