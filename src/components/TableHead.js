@@ -74,12 +74,10 @@ class TableHead extends React.Component {
             (column, index) =>
               column.display === 'true' &&
               (column.customHeadRender ? (
-                <div className={classes.fixedHeader}>
+                <th className={classes.fixedHeader}>
                   <TableHeadBorder />
-                  <div className={'noBorder'}>
-                    {column.customHeadRender({ index, ...column }, this.handleToggleColumn)}
-                  </div>
-                </div>
+                  {column.customHeadRender({ index, ...column }, this.handleToggleColumn)}
+                </th>
               ) : (
                 <TableHeadCell
                   key={index}
