@@ -60,7 +60,18 @@ class Example extends React.Component {
         options: {
             filter: false,
             customHeadRender: (columnMeta) => (
-                <th key={columnMeta.index} style={{ cursor: 'pointer', borderBottom: "1px rgba(0,0,0,0.1) solid", fontSize: 13, fontWeight: 1, textAlign: "right", paddingRight: "60px", top: 0, position: "sticky", backgroundColor: "#fff", zIndex: 100 }} scope="col">
+                <th key={columnMeta.index} style={{ 
+                  cursor: 'pointer', 
+                  borderBottom: "1px rgba(0,0,0,0.1) solid", 
+                  fontSize: 13, 
+                  fontWeight: 1, 
+                  textAlign: "right", 
+                  paddingRight: "60px", 
+                  top: 0, 
+                  position: "sticky", 
+                  backgroundColor: "#fff", 
+                  zIndex: 100 
+                }} scope="col">
                     {columnMeta.name}
                 </th>
             ),
