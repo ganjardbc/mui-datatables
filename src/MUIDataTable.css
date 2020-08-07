@@ -76,3 +76,7 @@
     background-color: rgba(0, 0, 0, 0.14);
     width: 10px;
 }
+
+.noBorder * {
+    border: 0 #fff solid;
+}

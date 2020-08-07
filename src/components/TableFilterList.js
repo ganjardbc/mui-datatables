@@ -11,7 +11,7 @@ const defaultFilterListStyles = {
     margin: '0px 16px 0px 16px',
   },
   chip: {
-    margin: '8px 8px 0px 0px',
+    margin: '8px 8px 8px 0px',
   },
 };
 

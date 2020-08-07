@@ -6,6 +6,7 @@ import { findDOMNode } from 'react-dom';
 import TableHeadCell from './TableHeadCell';
 import TableHeadRow from './TableHeadRow';
 import TableSelectCell from './TableSelectCell';
+import TableHeadBorder from './TableHeadBorder';
 
 const defaultHeadStyles = theme => ({
   main: {},
@@ -13,6 +14,21 @@ const defaultHeadStyles = theme => ({
     [theme.breakpoints.down('sm')]: {
       display: 'none',
     },
+  },
+  fixedHeader: {
+    position: 'sticky',
+    top: '0px',
+    left: '0px',
+    zIndex: 100,
+    backgroundColor: theme.palette.background.paper,
+    display: 'table-cell',
+    padding: '4px 56px 4px 24px',
+    textAlign: 'right',
+    verticalAlign: 'inherit',
+    borderBottom: '1px solid rgba(224, 224, 224, 1)',
+  },
+  noBorder: {
+    width: '100%',
   },
 });
 
@@ -38,6 +54,7 @@ class TableHead extends React.Component {
 
     return (
       <MuiTableHead
+        // style={{ borderTop: '1px rgba(224, 224, 224, 1) solid' }}
         className={classNames({ [classes.responsiveStacked]: options.responsive === 'stacked', [classes.main]: true })}>
         <TableHeadRow>
           <TableSelectCell
@@ -51,12 +68,16 @@ class TableHead extends React.Component {
             fixedHeader={options.fixedHeader}
             selectableRowsHeader={options.selectableRowsHeader}
             isRowSelectable={true}
+            borderTop={true}
           />
           {columns.map(
             (column, index) =>
               column.display === 'true' &&
               (column.customHeadRender ? (
-                column.customHeadRender({ index, ...column }, this.handleToggleColumn)
+                <th className={classes.fixedHeader}>
+                  <TableHeadBorder />
+                  {column.customHeadRender({ index, ...column }, this.handleToggleColumn)}
+                </th>
               ) : (
                 <TableHeadCell
                   key={index}
