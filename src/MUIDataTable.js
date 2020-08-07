@@ -1327,6 +1327,7 @@ class MUIDataTable extends React.Component {
       subtitle,
       circularProgress,
       linearProgress,
+      toolbarRender,
       onUpload,
       onCreate,
       onPrint,
@@ -1404,6 +1405,7 @@ class MUIDataTable extends React.Component {
               title={title}
               subtitle={subtitle}
               circularProgress={circularProgress}
+              toolbarRender={toolbarRender}
               toggleViewColumn={this.toggleViewColumn}
               setTableAction={this.setTableAction}
               onUpload={onUpload ? onUpload : () => {}}
@@ -1428,6 +1430,8 @@ class MUIDataTable extends React.Component {
           filterUpdate={this.filterUpdate}
           columnNames={columnNames}
         />
+
+        {toolbarRender && toolbarRender}
 
         {linearProgress && <ColorLinearProgress variant="query" className={classes.margin} style={{ height: '3px' }} />}
 

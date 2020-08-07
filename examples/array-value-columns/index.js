@@ -108,6 +108,7 @@ class Example extends React.Component {
         circularProgress={true}
         linearProgress={true}
         buttonUpload={true}
+        toolbarRender={<div style={{padding: "10px 24px", width: "calc(100% - 48px)"}}>Toolbar Render Component</div>}
         onUpload={() => {
           alert('this is upload handled');
         }}
