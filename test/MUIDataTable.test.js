@@ -1017,10 +1017,7 @@ describe('<MUIDataTable />', function() {
     instance.selectRowUpdate('cell', { index: 1, dataIndex: 1 });
     shallowWrapper.update();
 
-    const expectedResult = [
-      { index: 0, dataIndex: 0 },
-      { index: 1, dataIndex: 1 },
-    ];
+    const expectedResult = [{ index: 0, dataIndex: 0 }, { index: 1, dataIndex: 1 }];
     const state = shallowWrapper.state();
     assert.deepEqual(state.selectedRows.data, expectedResult);
   });
@@ -1033,10 +1030,7 @@ describe('<MUIDataTable />', function() {
     shallowWrapper.update();
 
     const state = shallowWrapper.state();
-    const expectedResult = [
-      { index: 0, dataIndex: 0 },
-      { index: 3, dataIndex: 3 },
-    ];
+    const expectedResult = [{ index: 0, dataIndex: 0 }, { index: 3, dataIndex: 3 }];
 
     assert.deepEqual(state.selectedRows.data, expectedResult);
   });
@@ -1052,10 +1046,7 @@ describe('<MUIDataTable />', function() {
     ]);
     shallowWrapper.update();
 
-    const expectedResult = [
-      { index: 0, dataIndex: 0 },
-      { index: 1, dataIndex: 1 },
-    ];
+    const expectedResult = [{ index: 0, dataIndex: 0 }, { index: 1, dataIndex: 1 }];
     const state = shallowWrapper.state();
     assert.deepEqual(state.selectedRows.data, expectedResult);
   });
@@ -1114,10 +1105,7 @@ describe('<MUIDataTable />', function() {
     const instance = shallowWrapper.instance();
 
     const state = shallowWrapper.state();
-    const expectedResult = [
-      { index: 0, dataIndex: 0 },
-      { index: 3, dataIndex: 3 },
-    ];
+    const expectedResult = [{ index: 0, dataIndex: 0 }, { index: 3, dataIndex: 3 }];
 
     assert.deepEqual(state.selectedRows.data, expectedResult);
   });
@@ -1130,10 +1118,7 @@ describe('<MUIDataTable />', function() {
     const instance = shallowWrapper.instance();
 
     const state = shallowWrapper.state();
-    const expectedResult = [
-      { index: 0, dataIndex: 0 },
-      { index: 3, dataIndex: 3 },
-    ];
+    const expectedResult = [{ index: 0, dataIndex: 0 }, { index: 3, dataIndex: 3 }];
 
     assert.deepEqual(state.selectedRows.data, expectedResult);
   });
@@ -1152,10 +1137,7 @@ describe('<MUIDataTable />', function() {
     const instance = shallowWrapper.instance();
 
     const state = shallowWrapper.state();
-    const expectedResult = [
-      { index: 0, dataIndex: 0 },
-      { index: 3, dataIndex: 3 },
-    ];
+    const expectedResult = [{ index: 0, dataIndex: 0 }, { index: 3, dataIndex: 3 }];
 
     assert.deepEqual(state.expandedRows.data, expectedResult);
   });
@@ -1301,10 +1283,7 @@ describe('<MUIDataTable />', function() {
     shallowWrapper.update();
 
     const state = shallowWrapper.state();
-    const expectedResult = [
-      { index: 0, dataIndex: 0 },
-      { index: 3, dataIndex: 3 },
-    ];
+    const expectedResult = [{ index: 0, dataIndex: 0 }, { index: 3, dataIndex: 3 }];
 
     assert.deepEqual(state.selectedRows.data, expectedResult);
     assert.strictEqual(options.onTableChange.callCount, 1);
@@ -1507,12 +1486,7 @@ describe('<MUIDataTable />', function() {
         },
       },
     ];
-    const data = [
-      ['other-data-1', 'a'],
-      ['other-data-2', 'b'],
-      ['other-data-3', 'c'],
-      ['other-data-4', 'd'],
-    ];
+    const data = [['other-data-1', 'a'], ['other-data-2', 'b'], ['other-data-3', 'c'], ['other-data-4', 'd']];
     const options = {
       filter: true,
       filterType: 'dropdown',

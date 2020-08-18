@@ -5,6 +5,13 @@ import Chip from '@material-ui/core/Chip';
 
 class Example extends React.Component {
 
+  constructor() {
+    super();
+    this.state = {
+      isSelecedActive: true
+    };
+  }
+
   render() {
     // const allTags = ['leave-message', 'frequently-busy', 'nice', 'grumpy', 'in-person', 'preferred', 'second-choice'];
     const columns = [
@@ -137,36 +144,49 @@ class Example extends React.Component {
       filter: true,
       filterType: 'dropdown',
       responsive: 'scrollMaxHeight',
-      disableToolbarSelect: true
+      selectableRows: 'single',
+      // rowsSelected: [0, 3],
+      disableToolbarSelect: true,
+      onRowsSelect: (rowData) => {
+        // this.setState({isSelecedActive: true});
+      }
     };
 
     return (
-      <MUIDataTable 
-        title={"ACME Employee list"} 
-        subtitle={"All data is set"} 
-        data={data} 
-        columns={columns} 
-        options={options} 
-        circularProgress={false}
-        linearProgress={false}
-        buttonUpload={true}
-        toolbarRender={<div style={{padding: "10px 24px", width: "calc(100% - 48px)"}}>Toolbar Render Component</div>}
-        onUpload={() => {
-          alert('this is upload handled');
-        }}
-        buttonCreate={true}
-        onCreate={() => {
-          alert('this is create handle');
-        }} 
-        buttonPrint={true}
-        onPrint={() => {
-          alert('this is print handle');
-        }}
-        buttonDownload={true}
-        onDownload={() => {
-          alert('this is download handle');
-        }} 
+      <div>
+        <button 
+            className="btn btn-grey btn-small-circle"
+            onClick={ () => this.setState({isSelecedActive: false}) }>
+            uncheck all
+        </button>
+        <MUIDataTable 
+          title={"ACME Employee list"} 
+          subtitle={"All data is set"} 
+          data={data} 
+          columns={columns} 
+          options={options} 
+          isSelecedActive={this.state.isSelecedActive}
+          circularProgress={false}
+          linearProgress={false}
+          buttonUpload={true}
+          toolbarRender={<div style={{padding: "10px 24px", width: "calc(100% - 48px)"}}>Toolbar Render Component</div>}
+          onUpload={() => {
+            alert('this is upload handled');
+          }}
+          buttonCreate={true}
+          onCreate={() => {
+            alert('this is create handle');
+          }} 
+          buttonPrint={true}
+          onPrint={() => {
+            alert('this is print handle');
+          }}
+          buttonDownload={true}
+          onDownload={() => {
+            alert('this is download handle');
+          }} 
         />
+      </div>
     );
 
   }

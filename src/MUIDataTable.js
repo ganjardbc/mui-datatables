@@ -335,6 +335,10 @@ class MUIDataTable extends React.Component {
       });
     }
 
+    if (this.props.isSelecedActive !== prevProps.isSelecedActive) {
+      this.selectRowUpdate();
+    }
+
     if (this.props.options.searchText !== prevProps.options.searchText && !this.props.options.serverSide) {
       // When we have a search, we must reset page to view it unless on serverSide since paging is handled by the user.
       this.setState({ page: 0 });
@@ -1327,6 +1331,7 @@ class MUIDataTable extends React.Component {
       subtitle,
       circularProgress,
       linearProgress,
+      isSelecedActive,
       toolbarRender,
       onUpload,
       onCreate,
@@ -1461,6 +1466,7 @@ class MUIDataTable extends React.Component {
             />
 
             <TableBody
+              isSelecedActive={isSelecedActive}
               data={displayData}
               count={rowCount}
               columns={columns}
