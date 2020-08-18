@@ -335,7 +335,7 @@ class MUIDataTable extends React.Component {
       });
     }
 
-    if (this.props.isSelecedActive !== prevProps.isSelecedActive) {
+    if (this.props.isSelectedActive !== prevProps.isSelectedActive) {
       this.selectRowUpdate();
     }
 
@@ -1331,7 +1331,7 @@ class MUIDataTable extends React.Component {
       subtitle,
       circularProgress,
       linearProgress,
-      isSelecedActive,
+      isSelectedActive,
       toolbarRender,
       onUpload,
       onCreate,
@@ -1466,7 +1466,7 @@ class MUIDataTable extends React.Component {
             />
 
             <TableBody
-              isSelecedActive={isSelecedActive}
+              isSelectedActive={isSelectedActive}
               data={displayData}
               count={rowCount}
               columns={columns}

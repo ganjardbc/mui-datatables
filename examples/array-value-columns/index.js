@@ -8,7 +8,7 @@ class Example extends React.Component {
   constructor() {
     super();
     this.state = {
-      isSelecedActive: true
+      isSelectedActive: true
     };
   }
 
@@ -148,7 +148,7 @@ class Example extends React.Component {
       // rowsSelected: [0, 3],
       disableToolbarSelect: true,
       onRowsSelect: (rowData) => {
-        // this.setState({isSelecedActive: true});
+        // this.setState({isSelectedActive: true});
       }
     };
 
@@ -156,7 +156,7 @@ class Example extends React.Component {
       <div>
         <button 
             className="btn btn-grey btn-small-circle"
-            onClick={ () => this.setState({isSelecedActive: false}) }>
+            onClick={ () => this.setState({isSelectedActive: false}) }>
             uncheck all
         </button>
         <MUIDataTable 
@@ -165,7 +165,7 @@ class Example extends React.Component {
           data={data} 
           columns={columns} 
           options={options} 
-          isSelecedActive={this.state.isSelecedActive}
+          isSelectedActive={this.state.isSelectedActive}
           circularProgress={false}
           linearProgress={false}
           buttonUpload={true}
