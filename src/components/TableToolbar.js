@@ -260,7 +260,16 @@ class TableToolbar extends React.Component {
       circularProgress,
     } = this.props;
 
-    const { search, print, download, downloadCsv, create, upload, viewColumns, filterTable } = options.textLabels.toolbar;
+    const {
+      search,
+      print,
+      download,
+      downloadCsv,
+      create,
+      upload,
+      viewColumns,
+      filterTable,
+    } = options.textLabels.toolbar;
     const { showSearch, searchText } = this.state;
     var searchPosition = 120;
 
