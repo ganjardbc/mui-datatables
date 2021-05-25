@@ -18,7 +18,7 @@ import UploadIcon from '@material-ui/icons/CloudUpload';
 import AddIcon from '@material-ui/icons/Add';
 import ViewColumnIcon from '@material-ui/icons/ViewColumn';
 import FilterIcon from '@material-ui/icons/FilterList';
-// import ReactToPrint from 'react-to-print';
+import ReactToPrint from 'react-to-print';
 import { withStyles } from '@material-ui/core/styles';
 import { createCSVDownload } from '../utils';
 
@@ -260,7 +260,7 @@ class TableToolbar extends React.Component {
       circularProgress,
     } = this.props;
 
-    const { search, print, download, create, upload, viewColumns, filterTable } = options.textLabels.toolbar;
+    const { search, print, download, downloadCsv, create, upload, viewColumns, filterTable } = options.textLabels.toolbar;
     const { showSearch, searchText } = this.state;
     var searchPosition = 120;
 
@@ -273,8 +273,8 @@ class TableToolbar extends React.Component {
             ) : (
               <div>
                 <div style={{ display: 'none' }}>
-                  {/* {options.download && (searchPosition += 48)} */}
-                  {/* {options.print && (searchPosition += 48)} */}
+                  {options.download && (searchPosition += 48)}
+                  {options.print && (searchPosition += 48)}
                   {/* {options.create && (searchPosition += 48)} */}
                   {this.props.buttonDownload && (searchPosition += 48)}
                   {this.props.buttonPrint && (searchPosition += 48)}
@@ -379,7 +379,7 @@ class TableToolbar extends React.Component {
             />
           )}
 
-          {/* {options.download && (
+          {options.download && (
             <Tooltip title={downloadCsv}>
               <IconButton
                 data-testid={downloadCsv + '-iconButton'}
@@ -389,9 +389,9 @@ class TableToolbar extends React.Component {
                 <DownloadIcon />
               </IconButton>
             </Tooltip>
-          )} */}
+          )}
 
-          {/* {options.print && (
+          {options.print && (
             <span>
               <ReactToPrint
                 trigger={() => (
@@ -409,7 +409,7 @@ class TableToolbar extends React.Component {
                 content={() => this.props.tableRef()}
               />
             </span>
-          )} */}
+          )}
 
           {this.props.buttonPrint && (
             <span>

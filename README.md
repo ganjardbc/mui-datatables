@@ -106,7 +106,17 @@ const data = [
 ];
 
 const options = {
-  filterType: 'checkbox',
+  download: true,
+  print: true,
+  filter: true,
+  filterType: 'dropdown',
+  responsive: 'scrollMaxHeight',
+  selectableRows: 'single',
+  // rowsSelected: [0, 3],
+  disableToolbarSelect: true,
+  onRowsSelect: (rowData) => {
+    //this.setState({isSelectedActive: true});
+  }
 };
 
 <MUIDataTable
@@ -117,6 +127,7 @@ const options = {
   options={options}
   circularProgress={false}
   linearProgress={false}
+  toolbarRender={<div style={{padding: "10px 24px", width: "calc(100% - 48px)"}}>Toolbar Render Component</div>}
   buttonUpload={true}
   onUpload={() => {
     alert('this is upload handled');

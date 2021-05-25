@@ -141,6 +141,8 @@ class Example extends React.Component {
     ];
 
     const options = {
+      download: true,
+      print: true,
       filter: true,
       filterType: 'dropdown',
       responsive: 'scrollMaxHeight',
@@ -168,8 +170,8 @@ class Example extends React.Component {
           isSelectedActive={this.state.isSelectedActive}
           circularProgress={false}
           linearProgress={false}
-          buttonUpload={true}
           toolbarRender={<div style={{padding: "10px 24px", width: "calc(100% - 48px)"}}>Toolbar Render Component</div>}
+          buttonUpload={true}
           onUpload={() => {
             alert('this is upload handled');
           }}
