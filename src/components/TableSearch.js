@@ -46,29 +46,55 @@ class TableSearch extends React.Component {
   };
 
   render() {
-    const { classes, options, onHide, searchText } = this.props;
+    const { classes, options, onHide, searchText, onClickSearch, buttonSearch } = this.props;
 
     return (
       <Grow appear in={true} timeout={300}>
-        <div className={classes.main} ref={el => (this.rootRef = el)}>
-          <SearchIcon style={{ marginRight: '10px' }} className={classes.searchIcon} />
-          <TextField
-            className={classes.searchText}
-            autoFocus={true}
-            InputProps={{
-              'data-test-id': options.textLabels.toolbar.search,
-              'aria-label': options.textLabels.toolbar.search,
-            }}
-            value={searchText || ''}
-            onChange={this.handleTextChange}
-            fullWidth={true}
-            inputRef={el => (this.searchField = el)}
-            placeholder={options.searchPlaceholder}
-          />
-          <IconButton className={classes.clearIcon} onClick={onHide}>
-            <ClearIcon />
-          </IconButton>
-        </div>
+        {buttonSearch ? (
+          <div className={classes.main} ref={el => (this.rootRef = el)}>
+            <IconButton className={classes.clearIcon} onClick={onHide}>
+              <ClearIcon />
+            </IconButton>
+            <TextField
+              className={classes.searchText}
+              style={{ marginTop: 7 }}
+              autoFocus={true}
+              InputProps={{
+                'data-test-id': options.textLabels.toolbar.search,
+                'aria-label': options.textLabels.toolbar.search,
+              }}
+              value={searchText || ''}
+              onChange={this.handleTextChange}
+              fullWidth={true}
+              inputRef={el => (this.searchField = el)}
+              placeholder={options.searchPlaceholder ? options.searchPlaceholder : 'Search ..'}
+            />
+            <IconButton onClick={() => onClickSearch(searchText)}>
+              <SearchIcon />
+            </IconButton>
+          </div>
+        ) : (
+          <div className={classes.main} ref={el => (this.rootRef = el)}>
+            {/* <SearchIcon style={{ marginRight: '10px' }} className={classes.searchIcon} /> */}
+            <TextField
+              className={classes.searchText}
+              style={{ marginTop: 7 }}
+              autoFocus={true}
+              InputProps={{
+                'data-test-id': options.textLabels.toolbar.search,
+                'aria-label': options.textLabels.toolbar.search,
+              }}
+              value={searchText || ''}
+              onChange={this.handleTextChange}
+              fullWidth={true}
+              inputRef={el => (this.searchField = el)}
+              placeholder={options.searchPlaceholder ? options.searchPlaceholder : 'Search ..'}
+            />
+            <IconButton className={classes.clearIcon} onClick={onHide}>
+              <ClearIcon />
+            </IconButton>
+          </div>
+        )}
       </Grow>
     );
   }

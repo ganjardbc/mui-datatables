@@ -1333,10 +1333,13 @@ class MUIDataTable extends React.Component {
       linearProgress,
       isSelectedActive,
       toolbarRender,
+      onSearch,
       onUpload,
       onCreate,
       onPrint,
       onDownload,
+      buttonReactiveSearch,
+      buttonSearch,
       buttonUpload,
       buttonCreate,
       buttonPrint,
@@ -1413,11 +1416,14 @@ class MUIDataTable extends React.Component {
               toolbarRender={toolbarRender}
               toggleViewColumn={this.toggleViewColumn}
               setTableAction={this.setTableAction}
+              onSearch={onSearch ? onSearch : () => {}}
               onUpload={onUpload ? onUpload : () => {}}
               onCreate={onCreate ? onCreate : () => {}}
               onPrint={onPrint ? onPrint : () => {}}
               onPrint={onPrint ? onPrint : () => {}}
               onDownload={onDownload ? onDownload : () => {}}
+              buttonReactiveSearch={buttonReactiveSearch ? buttonReactiveSearch : false}
+              buttonSearch={buttonSearch ? buttonSearch : false}
               buttonUpload={buttonUpload ? buttonUpload : false}
               buttonCreate={buttonCreate ? buttonCreate : false}
               buttonPrint={buttonPrint ? buttonPrint : false}

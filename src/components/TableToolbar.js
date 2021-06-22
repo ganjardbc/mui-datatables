@@ -240,7 +240,12 @@ class TableToolbar extends React.Component {
 
   handleSearch = value => {
     this.setState({ searchText: value });
-    this.props.searchTextUpdate(value);
+    !this.props.buttonSearch && this.props.searchTextUpdate(value);
+  };
+
+  handleClickSearch = value => {
+    this.props.onSearch && this.props.onSearch(value);
+    this.props.buttonReactiveSearch && this.props.searchTextUpdate(value);
   };
 
   render() {
@@ -284,7 +289,7 @@ class TableToolbar extends React.Component {
                 <div style={{ display: 'none' }}>
                   {options.download && (searchPosition += 48)}
                   {options.print && (searchPosition += 48)}
-                  {/* {options.create && (searchPosition += 48)} */}
+                  {!options.filter && (searchPosition -= 48)}
                   {this.props.buttonDownload && (searchPosition += 48)}
                   {this.props.buttonPrint && (searchPosition += 48)}
                   {this.props.buttonUpload && (searchPosition += 48)}
@@ -300,6 +305,8 @@ class TableToolbar extends React.Component {
                     zIndex: '2',
                   }}>
                   <TableSearch
+                    buttonSearch={this.props.buttonSearch}
+                    onClickSearch={data => this.handleClickSearch(data)}
                     searchText={searchText}
                     onSearch={this.handleSearch}
                     onHide={this.hideSearch}
