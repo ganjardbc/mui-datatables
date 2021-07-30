@@ -128,6 +128,7 @@ const options = {
   circularProgress={false}
   linearProgress={false}
   toolbarRender={<div style={{padding: "10px 24px", width: "calc(100% - 48px)"}}>Toolbar Render Component</div>}
+  enableOnEnterReactiveSearch={true}
   buttonReactiveSearch={true}
   buttonSearch={true}
   onSearch={(data) => {

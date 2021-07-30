@@ -262,6 +262,8 @@ class TableToolbar extends React.Component {
       title,
       subtitle,
       tableRef,
+      enableOnEnterReactiveSearch,
+      buttonSearch,
       circularProgress,
     } = this.props;
 
@@ -305,7 +307,8 @@ class TableToolbar extends React.Component {
                     zIndex: '2',
                   }}>
                   <TableSearch
-                    buttonSearch={this.props.buttonSearch}
+                    enableOnEnterReactiveSearch={enableOnEnterReactiveSearch}
+                    buttonSearch={buttonSearch}
                     onClickSearch={data => this.handleClickSearch(data)}
                     searchText={searchText}
                     onSearch={this.handleSearch}

@@ -1338,6 +1338,7 @@ class MUIDataTable extends React.Component {
       onCreate,
       onPrint,
       onDownload,
+      enableOnEnterReactiveSearch,
       buttonReactiveSearch,
       buttonSearch,
       buttonUpload,
@@ -1422,6 +1423,7 @@ class MUIDataTable extends React.Component {
               onPrint={onPrint ? onPrint : () => {}}
               onPrint={onPrint ? onPrint : () => {}}
               onDownload={onDownload ? onDownload : () => {}}
+              enableOnEnterReactiveSearch={enableOnEnterReactiveSearch ? enableOnEnterReactiveSearch : false}
               buttonReactiveSearch={buttonReactiveSearch ? buttonReactiveSearch : false}
               buttonSearch={buttonSearch ? buttonSearch : false}
               buttonUpload={buttonUpload ? buttonUpload : false}
