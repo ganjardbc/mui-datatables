@@ -40,7 +40,7 @@ class TableSearch extends React.Component {
   }
 
   onKeyDown = event => {
-    if (this.props.enableOnEnterReactiveSearch) {
+    if (this.props.enableOnEnterReactiveSearch && this.props.buttonSearch) {
       if (event.keyCode === 27 || event.keyCode === 13) {
         // this.props.onHide();
         this.props.onClickSearch(this.props.searchText);
