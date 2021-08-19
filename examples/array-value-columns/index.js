@@ -146,11 +146,18 @@ class Example extends React.Component {
       filter: true,
       filterType: 'dropdown',
       responsive: 'scrollMaxHeight',
-      selectableRows: 'single',
+      selectableRows: 'multiple',
       // rowsSelected: [0, 3],
-      disableToolbarSelect: true,
+      // disableToolbarSelect: true,
       onRowsSelect: (rowData) => {
         // this.setState({isSelectedActive: true});
+      },
+      customToolbarSelect: ()  => {
+        return (
+          <div style={{paddingRight: 15}}>
+            <button>SELECT</button>
+          </div>
+        );
       }
     };
 
